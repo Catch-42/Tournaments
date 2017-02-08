@@ -84,5 +84,10 @@ namespace Tournaments.Models
         {
             return this.DbSet.Any();
         }
+
+        public void SaveEntity(T entity)  // TODO TESTING
+        {
+            Console.WriteLine(entity.ToString());
+        }
     }
 }

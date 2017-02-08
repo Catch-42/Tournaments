@@ -252,6 +252,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="PlayerInput.aspx" />
     <Content Include="Players.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -288,6 +289,7 @@
     <Content Include="Site.Master" />
     <Content Include="Teams.aspx" />
     <Content Include="Tournaments.aspx" />
+    <Content Include="ViewControls\PlayersUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -447,6 +449,13 @@
     <Compile Include="Models_project\PlayerViewModel.cs" />
     <Compile Include="Models_project\TeamViewModel.cs" />
     <Compile Include="Models_project\TournamentViewModel.cs" />
+    <Compile Include="PlayerInput.aspx.cs">
+      <DependentUpon>PlayerInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlayerInput.aspx.designer.cs">
+      <DependentUpon>PlayerInput.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Players.aspx.cs">
       <DependentUpon>Players.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -488,6 +497,13 @@
       <DependentUpon>Tournaments.aspx</DependentUpon>
     </Compile>
     <Compile Include="TournamentsDbContextInitializer.cs" />
+    <Compile Include="ViewControls\PlayersUserControl.ascx.cs">
+      <DependentUpon>PlayersUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\PlayersUserControl.ascx.designer.cs">
+      <DependentUpon>PlayersUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -498,6 +514,7 @@
     <Compile Include="Views\IPlayerView.cs" />
     <Compile Include="Views\ITournamentView.cs" />
     <Compile Include="Views\ITeamView.cs" />
+    <Compile Include="Views\PlayerArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

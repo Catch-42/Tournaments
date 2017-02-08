@@ -52,5 +52,13 @@ namespace Tournaments.Services
         {
             return null;
         }
+
+        public void SavePlayer(Player player)
+        {
+            this.tournamentsDbContext.Players.Add(player);
+            this.tournamentsDbContext.SaveChanges();
+
+
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace Tournaments.Views
     public interface IPlayerView : IView<PlayerViewModel>
     {
         event EventHandler MyInit;
+        event EventHandler<PlayerArgs> SendPlayer;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Tournaments.Models;
 using Tournaments.Services;
 using Tournaments.Views;
 using WebFormsMvp;
@@ -14,11 +15,17 @@ namespace Tournaments.Presenters
         {
             this.provider = provider;
             this.View.MyInit += this.View_Init;
+            this.View.SendPlayer += this.View_SendPlayer;
         }
 
         private void View_Init(object sender, EventArgs e)
         {
             this.View.Model.Players = this.provider.GetPlayers();
+        }
+
+        private void View_SendPlayer(object sender, PlayerArgs e)
+        {
+            this.provider.SavePlayer(e.Player);
         }
     }
 }

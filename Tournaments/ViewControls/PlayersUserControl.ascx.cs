@@ -4,17 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tournaments.Models;
 using Tournaments.Models_project;
 using Tournaments.Presenters;
 using Tournaments.Views;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-namespace Tournaments
+namespace Tournaments.ViewControls
 {
     [PresenterBinding(typeof(PlayerPresenter))]
-    public partial class Players : MvpPage<PlayerViewModel>, IPlayerView
+    public partial class PlayersUserControl : MvpUserControl<PlayerViewModel>, IPlayerView
     {
         public event EventHandler MyInit;
         public event EventHandler<PlayerArgs> SendPlayer;
@@ -23,10 +22,8 @@ namespace Tournaments
         {
             this.MyInit?.Invoke(sender, e);
 
-            this.GridView2.DataSource = this.Model.Players;
-            this.GridView2.DataBind();
+            this.GridViewPlayers.DataSource = this.Model.Players;
+            this.GridViewPlayers.DataBind();
         }
-
-       
-    }
+    }   
 }

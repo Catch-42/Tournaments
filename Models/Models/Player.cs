@@ -12,7 +12,7 @@ namespace Tournaments.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50)]
         public string FirstName { get; set; }
         public string LastName { get; set; }

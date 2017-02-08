@@ -17,5 +17,7 @@ namespace Tournaments.Services
         IEnumerable<Player> GetPlayers();
 
         IEnumerable<Player> GetPlayerById(int id);
+
+        void SavePlayer(Player player);
     }
 }
