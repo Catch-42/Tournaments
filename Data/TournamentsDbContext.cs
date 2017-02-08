@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Tournaments.Contracts;
 using Tournaments.Migrations;
 
 namespace Tournaments.Models
@@ -15,7 +16,7 @@ namespace Tournaments.Models
         }
 
         public DbSet<Team> Teams { get; set; }
-        public DbSet<Player> Players;
+        public DbSet<Player> Players { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<Game> Games;
         public DbSet<Sponsor> Sponsors;

@@ -13,5 +13,9 @@ namespace Tournaments.Services
         IEnumerable<Tournament> GetTournaments();
 
         IEnumerable<Tournament> GetTournamentById(int id);
+
+        IEnumerable<Player> GetPlayers();
+
+        IEnumerable<Player> GetPlayerById(int id);
     }
 }

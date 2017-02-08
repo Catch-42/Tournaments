@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Tournaments.Contracts;
 using Tournaments.Models;
 
 using Tournaments.Presenters;
@@ -17,7 +18,9 @@ namespace Tournaments.App_Start
             //this.Bind<IDbContext>().To<MyNorthwindDbContext>().InRequestScope();
 
             this.Bind<TeamPresenter>().ToSelf();
-            this.Bind<ITournamentsDbContext>().To< TournamentsDbContext>(); 
+            this.Bind<TournamentPresenter>().ToSelf();
+            this.Bind<PlayerPresenter>().ToSelf();
+            this.Bind<ITournamentsDbContext>().To<TournamentsDbContext>(); 
 
             //this.Bind<EmpDetailsPresenter>().ToSelf();
 

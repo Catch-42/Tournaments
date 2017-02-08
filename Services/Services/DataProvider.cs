@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Tournaments.Contracts;
 using Tournaments.Models;
 
 namespace Tournaments.Services
@@ -38,6 +39,16 @@ namespace Tournaments.Services
         }
 
         public IEnumerable<Tournament> GetTournamentById(int id)
+        {
+            return null;
+        }
+
+        public IEnumerable<Player> GetPlayers()
+        {
+            return this.tournamentsDbContext.Players.ToList();
+        }
+
+        public IEnumerable<Player> GetPlayerById(int id)
         {
             return null;
         }

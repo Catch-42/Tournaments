@@ -13,6 +13,7 @@ namespace Tournaments.Migrations
         {
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
+
             this.ContextKey = "Tournaments.TournamentsDbContext";
         }
         //https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database
@@ -32,9 +33,16 @@ namespace Tournaments.Migrations
 
             };
 
+            var players = new List<Player>
+            {
+                new Player { FirstName="FirstName1", LastName="LastName1",NickName="NickName1", Picture="picture1",Email="email1",Rating=1,TeamId=1,IsCoach=false,CV="cv1"},
+                new Player { FirstName="FirstName2", LastName="LastName2",NickName="NickName2", Picture="picture2",Email="email2",Rating=1,TeamId=1,IsCoach=false,CV="cv2"},
+
+            };
+           
             teams.ForEach(team => context.Teams.Add(team));
             tournaments.ForEach(tournament => context.Tournaments.Add(tournament));
-
+            players.ForEach(player => context.Players.Add(player));
         }
     }
 }
