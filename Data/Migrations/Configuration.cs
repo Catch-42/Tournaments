@@ -32,17 +32,16 @@ namespace Tournaments.Migrations
                 new Tournament { Name="Tournament2",Date=new DateTime(2016,2,2), Prize=2},
 
             };
+            //var players = new List<Player>
+            //{
+            //    new Player() { FirstName="FirstName1", LastName="LastName1",NickName="NickName1", Picture="picture1",Email="email1",Rating=1,TeamId=1,IsCoach=false,CV="cv1"},
+            //    new Player() { FirstName="FirstName2", LastName="LastName2",NickName="NickName2", Picture="picture2",Email="email2",Rating=1,TeamId=1,IsCoach=false,CV="cv2"},
 
-            var players = new List<Player>
-            {
-                new Player { FirstName="FirstName1", LastName="LastName1",NickName="NickName1", Picture="picture1",Email="email1",Rating=1,TeamId=1,IsCoach=false,CV="cv1"},
-                new Player { FirstName="FirstName2", LastName="LastName2",NickName="NickName2", Picture="picture2",Email="email2",Rating=1,TeamId=1,IsCoach=false,CV="cv2"},
+            //};
 
-            };
-           
             teams.ForEach(team => context.Teams.Add(team));
             tournaments.ForEach(tournament => context.Tournaments.Add(tournament));
-            players.ForEach(player => context.Players.Add(player));
+            //players.ForEach(player => context.Users.Add(player));
         }
     }
 }

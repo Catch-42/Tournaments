@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Tournaments.Models;
+using Tournaments.Identity;
 
 namespace Tournaments.Account
 {
@@ -116,7 +117,7 @@ namespace Tournaments.Account
             Response.Redirect("/Account/Manage");
         }
 
-        //EnableTwoFactorAuthentication 
+        //EnableTwoFactorAuthentication
         protected void TwoFactorEnable_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();

@@ -17,21 +17,21 @@ namespace Tournaments
     {
         public event EventHandler MyInit;
         public event EventHandler<PlayerArgs> SendPlayer;
-  
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-  
+
         protected void ButtonSendPlayer_Click(object sender, EventArgs e)
         {
 
-            Models.Player pl = new Models.Player() { FirstName = TextBoxFirstName.Text, LastName = TextBoxLastName.Text, NickName = "NickName1", Picture = "picture1", Email = "email1", Rating = 1, TeamId = 1, IsCoach = false, CV = "cv_________1" };
-            var p = new PlayerArgs(pl);
+            //Models.Player pl = new Models.Player() { FirstName = TextBoxFirstName.Text, LastName = TextBoxLastName.Text, NickName = "NickName1", Picture = "picture1", Email = "email1", Rating = 1, TeamId = 1, IsCoach = false, CV = "cv_________1" };
+            //var p = new PlayerArgs(pl);
 
-            this.SendPlayer?.Invoke(null, p);
+            //this.SendPlayer?.Invoke(null, p);
 
-           
+
         }
     }
 }

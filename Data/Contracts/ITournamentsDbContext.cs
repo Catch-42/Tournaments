@@ -8,7 +8,7 @@ namespace Tournaments.Contracts
     {
         DbSet<Team> Teams { get; set; }
         DbSet<Tournament> Tournaments { get; set; }
-        DbSet<Player> Players { get; set; }
+        //DbSet<Player> Players { get; set; }
         int SaveChanges();
 
     }

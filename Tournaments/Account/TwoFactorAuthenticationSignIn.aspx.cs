@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Tournaments.Models;
+using Tournaments.Identity;
 
 namespace Tournaments.Account
 {
@@ -24,22 +25,22 @@ namespace Tournaments.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var userId = signinManager.GetVerifiedUserId<ApplicationUser, string>();
+            var userId = signinManager.GetVerifiedUserId<Player, string>();
             if (userId == null)
             {
                 Response.Redirect("/Account/Error", true);
             }
             var userFactors = manager.GetValidTwoFactorProviders(userId);
             Providers.DataSource = userFactors.Select(x => x).ToList();
-            Providers.DataBind();            
+            Providers.DataBind();
         }
 
         protected void CodeSubmit_Click(object sender, EventArgs e)
         {
             bool rememberMe = false;
             bool.TryParse(Request.QueryString["RememberMe"], out rememberMe);
-            
-            var result = signinManager.TwoFactorSignIn<ApplicationUser, string>(SelectedProvider.Value, Code.Text, isPersistent: rememberMe, rememberBrowser: RememberBrowser.Checked);
+
+            var result = signinManager.TwoFactorSignIn<Player, string>(SelectedProvider.Value, Code.Text, isPersistent: rememberMe, rememberBrowser: RememberBrowser.Checked);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -63,7 +64,7 @@ namespace Tournaments.Account
                 Response.Redirect("/Account/Error");
             }
 
-            var user = manager.FindById(signinManager.GetVerifiedUserId<ApplicationUser, string>());
+            var user = manager.FindById(signinManager.GetVerifiedUserId<Player, string>());
             if (user != null)
             {
                 var code = manager.GenerateTwoFactorToken(user.Id, Providers.SelectedValue);

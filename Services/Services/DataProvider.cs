@@ -11,15 +11,17 @@ namespace Tournaments.Services
     {
         //private readonly IDbContext dbContext;
         private readonly ITournamentsDbContext tournamentsDbContext;
+        private readonly ITournamentsRepository<Player> playerRepository;
 
         //public DataProvider(IDbContext dbContext)
         //{
         //    this.dbContext = dbContext;
         //}
 
-        public DataProvider(ITournamentsDbContext tournamentsDbContext)
+        public DataProvider(ITournamentsDbContext tournamentsDbContext, ITournamentsRepository<Player> playerRepository)
         {
             this.tournamentsDbContext =tournamentsDbContext;
+            this.playerRepository = playerRepository;
         }
 
         public IEnumerable<Team> GetTeams()
@@ -45,17 +47,18 @@ namespace Tournaments.Services
 
         public IEnumerable<Player> GetPlayers()
         {
-            return this.tournamentsDbContext.Players.ToList();
+            return this.playerRepository.All();
+            //return this.tournamentsDbContext.Players.ToList();
         }
 
-        public IEnumerable<Player> GetPlayerById(int id)
+        public Player GetPlayerById(int id)
         {
-            return null;
+            return this.playerRepository.GetById(id);
         }
 
         public void SavePlayer(Player player)
         {
-            this.tournamentsDbContext.Players.Add(player);
+            //this.tournamentsDbContext.Players.Add(player);
             this.tournamentsDbContext.SaveChanges();
 
 

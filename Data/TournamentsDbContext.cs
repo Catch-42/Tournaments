@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Tournaments.Contracts;
@@ -7,20 +6,21 @@ using Tournaments.Migrations;
 
 namespace Tournaments.Models
 {
-    public class TournamentsDbContext: DbContext, ITournamentsDbContext
+    public class TournamentsDbContext: IdentityDbContext<Player>, ITournamentsDbContext
     {
         public TournamentsDbContext()
-            : base("TournamentsDb")
+            : base("TournamentsDb2")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<TournamentsDbContext, Configuration>());
         }
 
         public DbSet<Team> Teams { get; set; }
-        public DbSet<Player> Players { get; set; }
+        //public DbSet<Player> Players { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<Game> Games;
         public DbSet<Sponsor> Sponsors;
         public DbSet<SponsorsTournaments> SponsorsTournamentsTable;
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
@@ -34,6 +34,11 @@ namespace Tournaments.Models
         public new void Dispose()
         {
             base.Dispose();
+        }
+
+        public static TournamentsDbContext Create()
+        {
+            return new TournamentsDbContext();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

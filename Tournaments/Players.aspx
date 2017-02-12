@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>         
+    <div>
     </div>
          <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false">
                 <Columns>
@@ -16,7 +16,7 @@
                     <asp:BoundField HeaderText="First name" DataField="FirstName"></asp:BoundField>
                     <asp:BoundField HeaderText="Last Name" DataField="LastName"></asp:BoundField>
                 </Columns>
-            </asp:GridView> 
+            </asp:GridView>
     </form>
 </body>
 </html>

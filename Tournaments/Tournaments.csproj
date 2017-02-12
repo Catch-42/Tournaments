@@ -418,7 +418,12 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\DataNinjectModule.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="Identity\ApplicationSignInManager.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\Class1.cs" />
+    <Compile Include="Identity\IdentityHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="App_Start\MvpNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />

@@ -27,6 +27,6 @@ namespace Tournaments
             this.GridView2.DataBind();
         }
 
-       
+
     }
 }
