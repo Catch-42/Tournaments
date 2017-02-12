@@ -519,6 +519,7 @@
     <Compile Include="Views\IPlayerView.cs" />
     <Compile Include="Views\ITournamentView.cs" />
     <Compile Include="Views\ITeamView.cs" />
+    <Compile Include="Views\GenericEventArgs.cs" />
     <Compile Include="Views\PlayerArgs.cs" />
   </ItemGroup>
   <ItemGroup>

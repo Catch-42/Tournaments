@@ -5,20 +5,21 @@ using Microsoft.Owin.Security;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.Owin;
+using Models.Models;
 
 namespace Tournaments.Identity
 {
-    public class ApplicationSignInManager : SignInManager<Player, string>
+    public class ApplicationSignInManager : SignInManager<User, string>
     {
-        public ApplicationSignInManager(UserManager<Player, string> userManager, IAuthenticationManager authenticationManager)
+        public ApplicationSignInManager(UserManager<User, string> userManager, IAuthenticationManager authenticationManager)
             : base(userManager, authenticationManager)
         {
 
         }
 
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(Player player)
+        public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user)
         {
-            return player.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
         }
 
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)

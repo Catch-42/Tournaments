@@ -19,25 +19,6 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:label runat="server" associatedcontrolid="FirstName" cssclass="col-md-2 control-label">First Name</asp:label>
-            <div class="col-md-10">
-                <asp:textbox runat="server" id="FirstName" cssclass="form-control" />
-                <asp:requiredfieldvalidator runat="server" controltovalidate="FirstName"
-                    cssclass="text-danger" errormessage="The first name field is required." />
-            </div>
-        </div>
-        <div class="form-group">
-            <asp:label runat="server" associatedcontrolid="LastName" cssclass="col-md-2 control-label">Last Name</asp:label>
-            <div class="col-md-10">
-                <asp:textbox runat="server" id="LastName" cssclass="form-control" />
-                <asp:requiredfieldvalidator runat="server" controltovalidate="LastName"
-                    cssclass="text-danger" errormessage="The last name field is required." />
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
             <asp:label runat="server" associatedcontrolid="Email" cssclass="col-md-2 control-label">Email</asp:label>
             <div class="col-md-10">
                 <asp:textbox runat="server" id="Email" cssclass="form-control" textmode="Email" />

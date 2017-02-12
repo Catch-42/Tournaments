@@ -6,6 +6,7 @@ using Microsoft.Owin.Security;
 using Owin;
 using Tournaments.Models;
 using Tournaments.Identity;
+using Models.Models;
 
 namespace Tournaments.Account
 {
@@ -94,7 +95,7 @@ namespace Tournaments.Account
             }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-            var user = new Player() { UserName = email.Text, Email = email.Text };
+            var user = new User() { UserName = email.Text, Email = email.Text };
             IdentityResult result = manager.Create(user);
             if (result.Succeeded)
             {

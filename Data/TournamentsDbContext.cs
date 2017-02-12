@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Models.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Tournaments.Contracts;
@@ -6,7 +7,7 @@ using Tournaments.Migrations;
 
 namespace Tournaments.Models
 {
-    public class TournamentsDbContext: IdentityDbContext<Player>, ITournamentsDbContext
+    public class TournamentsDbContext: IdentityDbContext<User>, ITournamentsDbContext
     {
         public TournamentsDbContext()
             : base("TournamentsDb2")
@@ -17,6 +18,8 @@ namespace Tournaments.Models
         public DbSet<Team> Teams { get; set; }
         //public DbSet<Player> Players { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
+        public DbSet<Player> Players { get; set; }
+
         public DbSet<Game> Games;
         public DbSet<Sponsor> Sponsors;
         public DbSet<SponsorsTournaments> SponsorsTournamentsTable;
@@ -36,7 +39,7 @@ namespace Tournaments.Models
             base.Dispose();
         }
 
-        public static TournamentsDbContext Create()
+        public static TournamentsDbContext Create() //TODO HOW ABOUT NO
         {
             return new TournamentsDbContext();
         }

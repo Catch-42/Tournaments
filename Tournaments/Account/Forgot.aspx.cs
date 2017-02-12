@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Tournaments.Models;
 using Tournaments.Identity;
+using Models.Models;
 
 namespace Tournaments.Account
 {
@@ -21,7 +22,7 @@ namespace Tournaments.Account
             {
                 // Validate the user's email address
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                Player user = manager.FindByName(Email.Text);
+                User user = manager.FindByName(Email.Text);
                 if (user == null || !manager.IsEmailConfirmed(user.Id))
                 {
                     FailureText.Text = "The user either does not exist or is not confirmed.";

@@ -17,7 +17,7 @@ namespace Tournaments
     public partial class Players : MvpPage<PlayerViewModel>, IPlayerView
     {
         public event EventHandler MyInit;
-        public event EventHandler<PlayerArgs> SendPlayer;
+        public event EventHandler<GenericEventArgs<Player>> SendPlayer;
 
         protected void Page_Load(object sender, EventArgs e)
         {

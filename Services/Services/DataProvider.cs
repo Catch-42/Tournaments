@@ -58,10 +58,8 @@ namespace Tournaments.Services
 
         public void SavePlayer(Player player)
         {
-            //this.tournamentsDbContext.Players.Add(player);
+            this.tournamentsDbContext.Players.Add(player);// TODO REPOSITORY
             this.tournamentsDbContext.SaveChanges();
-
-
         }
     }
 }

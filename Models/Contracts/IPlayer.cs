@@ -19,18 +19,14 @@ namespace Models.Contracts
 
         string Picture { get; set; }
 
-        double Rating { get; set; }
+        double? Rating { get; set; }
 
-        bool IsCoach { get; set; }
+        bool? IsCoach { get; set; }
 
         string CV { get; set; }
 
         int? TeamId { get; set; }
 
-        Team Team { get; set; }
-
-        ClaimsIdentity GenerateUserIdentity(UserManager<Player> manager);
-
-        Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Player> manager);
+        Team Team { get; set; }       
     }
 }

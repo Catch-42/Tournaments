@@ -23,9 +23,9 @@ namespace Tournaments.Presenters
             this.View.Model.Players = this.provider.GetPlayers();
         }
 
-        private void View_SendPlayer(object sender, PlayerArgs e)
+        private void View_SendPlayer(object sender, GenericEventArgs<Player> e)
         {
-            this.provider.SavePlayer(e.Player);
+            this.provider.SavePlayer(e.EntityProp);
         }
     }
 }

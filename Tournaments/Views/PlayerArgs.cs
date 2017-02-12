@@ -6,9 +6,9 @@ using Tournaments.Models;
 
 namespace Tournaments.Views
 {
-    public class PlayerArgs : EventArgs
+    public class PlayerArgs_ : EventArgs
     {
-        public PlayerArgs(Player player)
+        public PlayerArgs_(Player player)
         {
             this.Player = player;
         }

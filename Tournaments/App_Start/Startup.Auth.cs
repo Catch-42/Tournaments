@@ -9,6 +9,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using Tournaments.Models;
 using Tournaments.Identity;
+using Models.Models;
 
 namespace Tournaments
 {
@@ -19,6 +20,8 @@ namespace Tournaments
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
+
+            CreateRolesAndUsers();
             app.CreatePerOwinContext(TournamentsDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
@@ -32,7 +35,7 @@ namespace Tournaments
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, Player>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
@@ -66,6 +69,64 @@ namespace Tournaments
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+        }
+
+        private void CreateRolesAndUsers()
+        {
+            var tournamentDbContext = TournamentsDbContext.Create();
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(tournamentDbContext));
+            var userManager = new UserManager<User>(new UserStore<User>(tournamentDbContext));
+
+            if (!roleManager.RoleExists("Admin"))
+            {
+
+                // first we create Admin rool   
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Admin";
+                roleManager.Create(role);
+
+                //Here we create a Admin super user who will maintain the website                  
+
+                var user = new User();
+                user.UserName = "shanu";
+                user.Email = "syedshanumcain@gmail.com";
+
+                string userPWD = "A@Z200711";
+
+                var chkUser = userManager.Create(user, userPWD);
+
+                //Add default User to Role Admin   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = userManager.AddToRole(user.Id, role.Name);
+                }
+                //tournamentDbContext.SaveChanges();
+            }
+
+            // creating Creating Coach role    
+            if (!roleManager.RoleExists("Coach"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Coach";
+                roleManager.Create(role);
+
+            }
+
+            // creating Creating Player role    
+            if (!roleManager.RoleExists("Player"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Player";
+                roleManager.Create(role);
+            }
+
+            // creating Creating Sponsor role    
+            if (!roleManager.RoleExists("Sponsor"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Sponsor";
+                roleManager.Create(role);
+            }
         }
     }
 }
