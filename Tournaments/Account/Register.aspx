@@ -27,20 +27,6 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="DropDownListRole" CssClass="col-md-2 control-label">Your role</asp:Label>
-            <div class="col-md-10">
-                <asp:UpdatePanel runat="server" ID="UpdatePanelDropDownListRole">
-                    <ContentTemplate>
-                        <asp:DropDownList runat="server" ID="DropDownListRole" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="DropDownListRole_SelectedIndexChanged">
-                            <asp:ListItem Value="player" Text="Player" />
-                            <asp:ListItem Value="coach" Text="Coach" />
-                            <asp:ListItem Value="sponsor" Text="Sponsor" />
-                        </asp:DropDownList>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-        </div>
-        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
@@ -58,6 +44,56 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
             </div>
         </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="DropDownListRole" CssClass="col-md-2 control-label">Your role</asp:Label>
+            <div class="col-md-10">
+                <asp:UpdatePanel runat="server" ID="UpdatePanelDropDownListRole">
+                    <ContentTemplate>
+                        <asp:DropDownList runat="server" ID="DropDownListRole" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="DropDownListRole_SelectedIndexChanged">
+                            <asp:ListItem Selected="True" Value="player" Text="Player" />
+                            <asp:ListItem Value="coach" Text="Coach" />
+                            <asp:ListItem Value="sponsor" Text="Sponsor" />
+                        </asp:DropDownList>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+        <asp:UpdatePanel runat="server" ID="UpdatePanelUserData">
+            <ContentTemplate>
+                <asp:Panel runat="server" ID="PanelUserData" Visible="true">
+                    <div class="form-group">
+                        <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
+                                CssClass="text-danger" ErrorMessage="The first name field is required." />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox runat="server" ID="LastName" CssClass="form-control" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName"
+                                CssClass="text-danger" ErrorMessage="The last name field is required." />
+                        </div>
+                    </div>
+                </asp:Panel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel runat="server" ID="UpdatePanelSponsorData">
+            <ContentTemplate>
+                <asp:Panel runat="server" ID="PanelSponsorData" Visible="false">
+                    <div class="form-group">
+                        <asp:Label runat="server" AssociatedControlID="Name" CssClass="col-md-2 control-label">Sponsor's name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox runat="server" ID="Name" CssClass="form-control" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
+                                CssClass="text-danger" ErrorMessage="The sponsor's name field is required." />
+                        </div>
+                    </div>
+                </asp:Panel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />

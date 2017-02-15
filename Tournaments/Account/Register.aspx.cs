@@ -42,7 +42,19 @@ namespace Tournaments.Account
 
         protected void DropDownListRole_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selectedDropdownValue = this.DropDownListRole.SelectedValue;
 
+            if(selectedDropdownValue == "sponsor")
+            {
+                this.PanelUserData.Visible = false;
+                this.PanelSponsorData.Visible = true;
+            }
+            else
+            {
+                //player and coach have the same required fields
+                this.PanelUserData.Visible = true;
+                this.PanelSponsorData.Visible = false;
+            }
         }
     }
 }
