@@ -29,11 +29,15 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="DropDownListRole" CssClass="col-md-2 control-label">Your role</asp:Label>
             <div class="col-md-10">
-                <asp:DropDownList runat="server" ID="DropDownListRole" CssClass="form-control">
-                    <asp:ListItem Value="player" Text="Player" />
-                    <asp:ListItem Value="coach" Text="Coach" />
-                    <asp:ListItem Value="sponsor" Text="Sponsor" />
-                </asp:DropDownList>
+                <asp:UpdatePanel runat="server" ID="UpdatePanelDropDownListRole">
+                    <ContentTemplate>
+                        <asp:DropDownList runat="server" ID="DropDownListRole" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="DropDownListRole_SelectedIndexChanged">
+                            <asp:ListItem Value="player" Text="Player" />
+                            <asp:ListItem Value="coach" Text="Coach" />
+                            <asp:ListItem Value="sponsor" Text="Sponsor" />
+                        </asp:DropDownList>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
         <div class="form-group">

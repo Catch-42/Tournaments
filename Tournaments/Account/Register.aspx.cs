@@ -20,7 +20,7 @@ namespace Tournaments.Account
             var user = new User()
             {
                 UserName = this.UserName.Text,
-                Email = this.Email.Text                
+                Email = this.Email.Text
             };
 
             IdentityResult result = manager.Create(user, this.Password.Text);
@@ -38,6 +38,11 @@ namespace Tournaments.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+        }
+
+        protected void DropDownListRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

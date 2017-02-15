@@ -40,6 +40,15 @@ namespace Tournaments.Account {
         protected global::System.Web.UI.WebControls.TextBox Email;
         
         /// <summary>
+        /// UpdatePanelDropDownListRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelDropDownListRole;
+        
+        /// <summary>
         /// DropDownListRole control.
         /// </summary>
         /// <remarks>
