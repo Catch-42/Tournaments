@@ -18,6 +18,10 @@ namespace Tournaments.Services
 
         Player GetPlayerById(int id);
 
+        IEnumerable<Sponsor> GetSponsors();
+
+        Sponsor GetSponsorById(int id);
+
         void SavePlayer(Player player);
     }
 }

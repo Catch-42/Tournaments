@@ -61,5 +61,16 @@ namespace Tournaments.Services
             this.tournamentsDbContext.Players.Add(player);// TODO REPOSITORY
             this.tournamentsDbContext.SaveChanges();
         }
+
+        public IEnumerable<Sponsor> GetSponsors()
+        {
+            // TODO: get the sponsors through a repository
+            return this.tournamentsDbContext.Sponsors.ToList();
+        }
+
+        public Sponsor GetSponsorById(int id)
+        {
+            return null;
+        }
     }
 }
