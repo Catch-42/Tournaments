@@ -20,6 +20,7 @@ namespace Tournaments.App_Start
             this.Bind<TeamPresenter>().ToSelf();
             this.Bind<TournamentPresenter>().ToSelf();
             this.Bind<PlayerPresenter>().ToSelf();
+            this.Bind<SponsorPresenter>().ToSelf();
             this.Bind<ITournamentsDbContext>().To<TournamentsDbContext>();
             this.Bind(typeof(ITournamentsRepository<>)).To(typeof(TournamentsRepository<>)).InSingletonScope();
             //this.Bind<EmpDetailsPresenter>().ToSelf();

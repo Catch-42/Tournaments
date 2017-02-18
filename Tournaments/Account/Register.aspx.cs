@@ -20,7 +20,7 @@ namespace Tournaments.Account
             var user = new User()
             {
                 UserName = this.UserName.Text,
-                Email = this.Email.Text                
+                Email = this.Email.Text
             };
 
             IdentityResult result = manager.Create(user, this.Password.Text);
@@ -37,6 +37,23 @@ namespace Tournaments.Account
             else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+        }
+
+        protected void DropDownListRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDropdownValue = this.DropDownListRole.SelectedValue;
+
+            if(selectedDropdownValue == "sponsor")
+            {
+                this.PanelUserData.Visible = false;
+                this.PanelSponsorData.Visible = true;
+            }
+            else
+            {
+                //player and coach have the same required fields
+                this.PanelUserData.Visible = true;
+                this.PanelSponsorData.Visible = false;
             }
         }
     }

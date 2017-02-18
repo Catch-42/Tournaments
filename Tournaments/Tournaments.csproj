@@ -287,9 +287,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Sponsors.aspx" />
     <Content Include="Teams.aspx" />
     <Content Include="Tournaments.aspx" />
     <Content Include="ViewControls\PlayersUserControl.ascx" />
+    <Content Include="ViewControls\PlayersUserControl_1.ascx" />
+    <Content Include="ViewControls\SponsorsUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -452,6 +455,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models_project\PlayerViewModel.cs" />
+    <Compile Include="Models_project\SponsorsViewModel.cs" />
     <Compile Include="Models_project\TeamViewModel.cs" />
     <Compile Include="Models_project\TournamentViewModel.cs" />
     <Compile Include="PlayerInput.aspx.cs">
@@ -469,6 +473,7 @@
       <DependentUpon>Players.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presenters\PlayerPresenter.cs" />
+    <Compile Include="Presenters\SponsorPresenter.cs" />
     <Compile Include="Presenters\TournamentPresenter.cs" />
     <Compile Include="Presenters\TeamPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -485,6 +490,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Sponsors.aspx.cs">
+      <DependentUpon>Sponsors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sponsors.aspx.designer.cs">
+      <DependentUpon>Sponsors.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Teams.aspx.cs">
@@ -509,6 +521,20 @@
     <Compile Include="ViewControls\PlayersUserControl.ascx.designer.cs">
       <DependentUpon>PlayersUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewControls\PlayersUserControl_1.ascx.cs">
+      <DependentUpon>PlayersUserControl_1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\PlayersUserControl_1.ascx.designer.cs">
+      <DependentUpon>PlayersUserControl_1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\SponsorsUserControl.ascx.cs">
+      <DependentUpon>SponsorsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\SponsorsUserControl.ascx.designer.cs">
+      <DependentUpon>SponsorsUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +543,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\IPlayerView.cs" />
+    <Compile Include="Views\ISponsorsView.cs" />
     <Compile Include="Views\ITournamentView.cs" />
     <Compile Include="Views\ITeamView.cs" />
     <Compile Include="Views\GenericEventArgs.cs" />

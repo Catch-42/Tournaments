@@ -39,11 +39,20 @@ namespace Tournaments.Migrations
 
             };
 
+            var sponsors = new List<Sponsor>
+            {
+                new Sponsor() { Name = "Name1" },
+                new Sponsor() { Name = "Name2" }
+            };
+
             teams.ForEach(team => context.Teams.Add(team));
             tournaments.ForEach(tournament => context.Tournaments.Add(tournament));
             context.SaveChanges();
             players.ForEach(player => context.Players.Add(player));
             context.SaveChanges();
+
+            sponsors.ForEach(sponsor => context.Sponsors.Add(sponsor));
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Tournaments.Contracts;
 using Tournaments.Migrations;
+using System;
 
 namespace Tournaments.Models
 {
@@ -21,7 +22,8 @@ namespace Tournaments.Models
         public DbSet<Player> Players { get; set; }
 
         public DbSet<Game> Games;
-        public DbSet<Sponsor> Sponsors;
+        public DbSet<Sponsor> Sponsors { get; set; }
+
         public DbSet<SponsorsTournaments> SponsorsTournamentsTable;
 
         public new IDbSet<T> Set<T>() where T : class
