@@ -19,6 +19,7 @@ namespace Tournaments
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)
         {
+            System.Diagnostics.Debug.WriteLine("We are in startup auth");
             // Configure the db context, user manager and signin manager to use a single instance per request
 
             CreateRolesAndUsers();

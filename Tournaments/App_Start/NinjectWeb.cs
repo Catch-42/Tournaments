@@ -5,6 +5,7 @@ namespace Tournaments.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject.Web;
+    using System;
 
     public static class NinjectWeb 
     {
@@ -13,6 +14,7 @@ namespace Tournaments.App_Start
         /// </summary>
         public static void Start() 
         {
+            System.Diagnostics.Debug.WriteLine("We are in ninject.web");
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
         }
     }

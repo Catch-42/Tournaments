@@ -17,6 +17,7 @@ namespace Tournaments.App_Start
     {
         public override void Load()
         {
+            System.Diagnostics.Debug.WriteLine("We are in mvp ninject.module");
             this.Bind<IPresenterFactory>().To<WebFormsMvpPresenterFactory>().InSingletonScope();
 
             this.Bind<ICustomPresenterFactory>().ToFactory().InSingletonScope();

@@ -520,7 +520,6 @@
     <Compile Include="Views\ITournamentView.cs" />
     <Compile Include="Views\ITeamView.cs" />
     <Compile Include="Views\GenericEventArgs.cs" />
-    <Compile Include="Views\PlayerArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

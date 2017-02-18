@@ -13,6 +13,7 @@ namespace Tournaments.App_Start
     {
         public override void Load()
         {
+            System.Diagnostics.Debug.WriteLine("from data ninject module");
             //this.Bind<ITournamentsDbContext>().To<TournamentsDbContext>();
             //this.Bind<IDataProvider>().To<DataProvider>();
         }

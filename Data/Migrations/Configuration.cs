@@ -41,7 +41,9 @@ namespace Tournaments.Migrations
 
             teams.ForEach(team => context.Teams.Add(team));
             tournaments.ForEach(tournament => context.Tournaments.Add(tournament));
+            context.SaveChanges();
             players.ForEach(player => context.Players.Add(player));
+            context.SaveChanges();
         }
     }
 }
