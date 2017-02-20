@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,6 @@ namespace Tournaments.Models_project
 {
     public class TeamViewModel
     {
-        public IEnumerable<Team> Teams { get; set; }
+        public IEnumerable<ITeam> Teams { get; set; }
     }
 }

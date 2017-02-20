@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,7 +31,7 @@ namespace Tournaments.ViewControls
         //     out int totalRowCount
         //     string sortByExpression
 
-        public IEnumerable<Team> TeamView_GetData()
+        public IEnumerable<ITeam> TeamView_GetData()
         {
             this.OnGetData?.Invoke(this, null);
 

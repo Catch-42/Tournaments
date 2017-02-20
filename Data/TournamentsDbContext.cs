@@ -22,8 +22,10 @@ namespace Tournaments.Models
         public IDbSet<Tournament> Tournaments { get; set; }
         public IDbSet<Player> Players { get; set; }
 
-        public IDbSet<Game> Games;
-        public IDbSet<Sponsor> Sponsors { get; set; }
+        public IDbSet<Game> Games { get; set; }
+        public IDbSet<Sponsor> Sponsors { get; set; }         
+
+        public object DbSet { get; set; }
 
         public IDbSet<SponsorsTournaments> SponsorsTournamentsTable;
 
@@ -55,7 +57,9 @@ namespace Tournaments.Models
             base.OnModelCreating(modelBuilder);
         }
 
-
-
+        //IDbSet<SponsorsTournaments> ITournamentsDbContext.SponsorsTournamentsTable()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

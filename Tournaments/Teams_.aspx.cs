@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,7 +30,7 @@ namespace Tournaments
         //     out int totalRowCount
         //     string sortByExpression
 
-        public IQueryable<Team> GridViewTeams_GetData()
+        public IQueryable<ITeam> GridViewTeams_GetData()
         {
             this.OnGetData?.Invoke(this, null);
 

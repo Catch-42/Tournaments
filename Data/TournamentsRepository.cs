@@ -17,7 +17,7 @@ namespace Tournaments.Models
         {
             if (context == null)
             {
-                throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
+                throw new ArgumentNullException("An instance of DbContext is required to use this repository.", "context");
             }
 
             this.Context = context;

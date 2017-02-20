@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using Tournaments.Models;
 
 namespace Tournaments.Models
 {
-    public class Team
+    public class Team: ITeam
     {       
         public Team()
         {

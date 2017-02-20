@@ -1,4 +1,6 @@
-﻿using Services.Services.Contracts;
+﻿using Bytes2you.Validation;
+using Models.Contracts;
+using Services.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +19,11 @@ namespace Tournaments.Presenters
         public TeamPresenter(ITeamView view, ITeamService teamService)
             : base(view)
         {
+            Guard.WhenArgument(teamService, "TeamService").IsNull().Throw();
+            Guard.WhenArgument(view, "TeamView").IsNull().Throw();
+
             this.teamService = teamService;
-             this.View.MyInit += this.View_Init;
+            this.View.MyInit += this.View_Init;
             this.View.OnGetData+=this.View_OnGetData;
             this.View.OnInsertItem += this.View_OnInsertItem;
             this.View.OnDeleteItem += this.View_OnDeleteItem;
@@ -37,7 +42,7 @@ namespace Tournaments.Presenters
                 throw new ArgumentNullException("Update team Id cannot be null");
             }
             
-            Team item = this.teamService.GetTeamById((int) e.Id).FirstOrDefault();
+            ITeam item = this.teamService.GetTeamById((int) e.Id).FirstOrDefault();
             if (item == null)
             {
                 // The item wasn't found

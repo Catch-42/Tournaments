@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,21 +10,21 @@ namespace Services.Services.Contracts
 {
     public interface ITeamService
     {
-        IEnumerable<Team> GetTeams();
+        IEnumerable<ITeam> GetTeams();
 
-        IEnumerable<Team> GetTeamById(int id);
+        IEnumerable<ITeam> GetTeamById(int id);
 
 
-        IEnumerable<Player> GetPlayers(int teamId);
+        IEnumerable<IPlayer> GetPlayers(int teamId);
 
-        int UpdateTeam(Team team);
+        int UpdateTeam(ITeam team);
 
-        int InsertTeam(Team team);
+        int InsertTeam(ITeam team);
 
 
         int DeleteTeam(int teamId);
 
-        IEnumerable<Team> GetAllTeamsSortedById();
+        IEnumerable<ITeam> GetAllTeamsSortedById();
        
     }
 }
