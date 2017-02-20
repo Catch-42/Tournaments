@@ -2,14 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using Tournaments.Models;
 
 namespace Tournaments.Models
 {
     public class Team: ITeam
-    {       
+    {
         public Team()
         {
             this.Players = new HashSet<Player>();
@@ -17,10 +14,14 @@ namespace Tournaments.Models
 
         [Key]
         public int Id { get; set; }
+
+        //[Required]
+        //[MinLength(2)]
+        //[StringLength(50)]
         public string Name { get; set; }
+
         public double Rating { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
-
     }
 }
