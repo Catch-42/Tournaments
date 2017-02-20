@@ -13,8 +13,7 @@ namespace Tournaments.App_Start
         /// Starts the application
         /// </summary>
         public static void Start() 
-        {
-            System.Diagnostics.Debug.WriteLine("We are in ninject.web");
+        {            
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
         }
     }

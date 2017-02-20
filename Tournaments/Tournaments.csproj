@@ -47,6 +47,14 @@
       <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.ZLib, Version=2.0.0.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkerMetro.Unity.Ionic.Zlib.2.0.0.14\lib\net35\Ionic.ZLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -243,6 +251,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="TESTINGupload.aspx" />
+    <Content Include="ViewControls\FileUploadControl.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -252,7 +262,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="PlayerInput.aspx" />
+    <Content Include="images\ajax-loader.gif" />
     <Content Include="Players.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -288,11 +298,16 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Sponsors.aspx" />
+    <Content Include="TeamPlayers.aspx" />
+    <Content Include="Teams_.aspx" />
+    <Content Include="TeamManager.aspx" />
     <Content Include="Teams.aspx" />
     <Content Include="Tournaments.aspx" />
+    <Content Include="ViewControls\Notifier.ascx" />
     <Content Include="ViewControls\PlayersUserControl.ascx" />
     <Content Include="ViewControls\PlayersUserControl_1.ascx" />
     <Content Include="ViewControls\SponsorsUserControl.ascx" />
+    <Content Include="ViewControls\TeamsUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -423,6 +438,20 @@
     </Compile>
     <Compile Include="App_Start\DataNinjectModule.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="TESTINGupload.aspx.cs">
+      <DependentUpon>TESTINGupload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TESTINGupload.aspx.designer.cs">
+      <DependentUpon>TESTINGupload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\FileUploadControl.ascx.cs">
+      <DependentUpon>FileUploadControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\FileUploadControl.ascx.designer.cs">
+      <DependentUpon>FileUploadControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Identity\Class1.cs" />
@@ -456,15 +485,9 @@
     </Compile>
     <Compile Include="Models_project\PlayerViewModel.cs" />
     <Compile Include="Models_project\SponsorsViewModel.cs" />
+    <Compile Include="Models_project\TeamPlayersViewModel.cs" />
     <Compile Include="Models_project\TeamViewModel.cs" />
     <Compile Include="Models_project\TournamentViewModel.cs" />
-    <Compile Include="PlayerInput.aspx.cs">
-      <DependentUpon>PlayerInput.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PlayerInput.aspx.designer.cs">
-      <DependentUpon>PlayerInput.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Players.aspx.cs">
       <DependentUpon>Players.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -474,6 +497,7 @@
     </Compile>
     <Compile Include="Presenters\PlayerPresenter.cs" />
     <Compile Include="Presenters\SponsorPresenter.cs" />
+    <Compile Include="Presenters\TeamPlayersPresenter.cs" />
     <Compile Include="Presenters\TournamentPresenter.cs" />
     <Compile Include="Presenters\TeamPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -498,6 +522,27 @@
     <Compile Include="Sponsors.aspx.designer.cs">
       <DependentUpon>Sponsors.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeamPlayers.aspx.cs">
+      <DependentUpon>TeamPlayers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamPlayers.aspx.designer.cs">
+      <DependentUpon>TeamPlayers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Teams_.aspx.cs">
+      <DependentUpon>Teams_.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teams_.aspx.designer.cs">
+      <DependentUpon>Teams_.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeamManager.aspx.cs">
+      <DependentUpon>TeamManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamManager.aspx.designer.cs">
+      <DependentUpon>TeamManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Teams.aspx.cs">
       <DependentUpon>Teams.aspx</DependentUpon>
@@ -514,6 +559,13 @@
       <DependentUpon>Tournaments.aspx</DependentUpon>
     </Compile>
     <Compile Include="TournamentsDbContextInitializer.cs" />
+    <Compile Include="ViewControls\Notifier.ascx.cs">
+      <DependentUpon>Notifier.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\Notifier.ascx.designer.cs">
+      <DependentUpon>Notifier.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\PlayersUserControl.ascx.cs">
       <DependentUpon>PlayersUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +587,13 @@
     <Compile Include="ViewControls\SponsorsUserControl.ascx.designer.cs">
       <DependentUpon>SponsorsUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewControls\TeamsUserControl.ascx.cs">
+      <DependentUpon>TeamsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\TeamsUserControl.ascx.designer.cs">
+      <DependentUpon>TeamsUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,14 +601,17 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\IdEventArgs.cs" />
     <Compile Include="Views\IPlayerView.cs" />
     <Compile Include="Views\ISponsorsView.cs" />
+    <Compile Include="Views\ITeamPlayersView.cs" />
     <Compile Include="Views\ITournamentView.cs" />
     <Compile Include="Views\ITeamView.cs" />
     <Compile Include="Views\GenericEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\Pictures\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

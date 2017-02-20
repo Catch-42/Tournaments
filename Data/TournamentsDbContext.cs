@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using Tournaments.Contracts;
 using Tournaments.Migrations;
 using System;
+using System.Data.Entity.Infrastructure;
 
 namespace Tournaments.Models
 {
@@ -16,15 +17,15 @@ namespace Tournaments.Models
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<TournamentsDbContext, Configuration>());
         }
 
-        public DbSet<Team> Teams { get; set; }
+        public IDbSet<Team> Teams { get; set; }
         //public DbSet<Player> Players { get; set; }
-        public DbSet<Tournament> Tournaments { get; set; }
-        public DbSet<Player> Players { get; set; }
+        public IDbSet<Tournament> Tournaments { get; set; }
+        public IDbSet<Player> Players { get; set; }
 
-        public DbSet<Game> Games;
-        public DbSet<Sponsor> Sponsors { get; set; }
+        public IDbSet<Game> Games;
+        public IDbSet<Sponsor> Sponsors { get; set; }
 
-        public DbSet<SponsorsTournaments> SponsorsTournamentsTable;
+        public IDbSet<SponsorsTournaments> SponsorsTournamentsTable;
 
         public new IDbSet<T> Set<T>() where T : class
         {
@@ -38,7 +39,7 @@ namespace Tournaments.Models
 
         public new void Dispose()
         {
-            base.Dispose();
+            base.Dispose();  // TODO CONTAINER?
         }
 
         public static TournamentsDbContext Create() //TODO HOW ABOUT NO
@@ -53,6 +54,8 @@ namespace Tournaments.Models
 
             base.OnModelCreating(modelBuilder);
         }
+
+
 
     }
 }

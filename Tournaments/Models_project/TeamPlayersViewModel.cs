@@ -6,9 +6,8 @@ using Tournaments.Models;
 
 namespace Tournaments.Models_project
 {
-    public class TeamPlayersViewModel
+    public class TeamViewModel
     {
         public IEnumerable<Team> Teams { get; set; }
-        public IEnumerable<Player> Players { get; set; }
     }
 }

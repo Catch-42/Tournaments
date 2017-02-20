@@ -20,6 +20,11 @@ namespace Tournaments.Migrations
         //In the Package Manager Console enter the command:  update-database
         protected override void Seed(TournamentsDbContext context)
         {
+            if (context.Teams.Any())
+            {
+                return;
+            }
+
             var teams = new List<Team>
             {
                 new Team { Name="Team1",Rating=1},

@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq.Expressions;
 
 namespace Tournaments.Contracts
 {
     public interface ITournamentsRepository<T>
         where T : class
-    {
-        IEnumerable<T> All();
+    {        
+        IEnumerable<T> All();             
 
         ObservableCollection<T> Local { get; }
 
@@ -25,6 +27,16 @@ namespace Tournaments.Contracts
         void Delete(T entity);
 
         void Delete(int id);
+
+        void AddOrUpdate(T entity);
+
+        void Update(T entity);
+
+        IEnumerable<T1> GetAllForInclude<T1>(
+            Expression<Func<T, bool>> filterExpression,
+            Expression<Func<T, T1>> selectExpression,
+            params Expression<Func<T, object>>[] includes);
+
     }
 }
 

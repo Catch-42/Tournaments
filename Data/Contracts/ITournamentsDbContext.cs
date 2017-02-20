@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using Tournaments.Models;
 
 namespace Tournaments.Contracts
 {
     public interface ITournamentsDbContext
     {
-        DbSet<Team> Teams { get; set; }
-        DbSet<Tournament> Tournaments { get; set; }
-        DbSet<Player> Players { get; set; }
+        IDbSet<Team> Teams { get; set; }
+        IDbSet<Tournament> Tournaments { get; set; }
+        IDbSet<Player> Players { get; set; }
 
-        DbSet<Sponsor> Sponsors { get; set; }
+        IDbSet<Sponsor> Sponsors { get; set; }
 
         int SaveChanges();
 
-    }
+        DbEntityEntry Entry(object entity);
+     }
 }

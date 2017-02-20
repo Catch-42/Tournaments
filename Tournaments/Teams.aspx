@@ -1,23 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Teams.aspx.cs" Inherits="Tournaments.Teams" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Teams.aspx.cs" Inherits="Tournaments.Teams" %>
 
-<!DOCTYPE html>
+<%@ Register Src="~/ViewControls/TeamsUserControl.ascx" TagPrefix="uc" TagName="teams" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
-                <Columns>
-                    <asp:BoundField HeaderText="Id" DataField="Id"></asp:BoundField>
-                    <asp:BoundField HeaderText="Team name" DataField="Name"></asp:BoundField>
-                    <asp:BoundField HeaderText="Rating" DataField="Rating"></asp:BoundField>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-                </Columns>
-            </asp:GridView>
-        </div>
-    </form>
-</body>
-</html>
+
+    <div class="row well content-container-even">
+        <uc:teams runat="server" />
+    </div>
+</asp:Content>
+

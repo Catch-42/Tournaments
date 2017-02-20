@@ -20,8 +20,7 @@ namespace Tournaments.App_Start
         /// Starts the application
         /// </summary>
         public static void Start()
-        {
-            System.Diagnostics.Debug.WriteLine("We are in ninject.common");
+        {            
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);

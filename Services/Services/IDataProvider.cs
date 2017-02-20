@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Tournaments.Models;
 
 namespace Tournaments.Services
@@ -23,5 +24,21 @@ namespace Tournaments.Services
         Sponsor GetSponsorById(int id);
 
         void SavePlayer(Player player);
+
+        int UpdateTeam(Team team);
+
+        int InsertTeam(Team team);
+
+        int DeleteTeam(int id);
+
+        //IQueryable<Category> GetAllCategoriesWithBooksIncluded();
+
+        IQueryable<Team> GetAllTeamsSortedById();
+
+       
+
+
+
+
     }
 }

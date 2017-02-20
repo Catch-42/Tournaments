@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Tournaments.Contracts;
@@ -31,8 +32,8 @@ namespace Tournaments.Services
 
         public IEnumerable<Team> GetTeamById(int id)
         {
-            //return this.dbContext.Employees.Where(em => em.EmployeeID == id).ToList();
-            return null;
+            return this.tournamentsDbContext.Teams.Where(t => t.Id == id).ToList(); // TODO TO LIST?
+            
         }
 
         public IEnumerable<Tournament> GetTournaments()
@@ -71,6 +72,34 @@ namespace Tournaments.Services
         public Sponsor GetSponsorById(int id)
         {
             return null;
+        }
+
+        public int UpdateTeam(Team team)
+        {
+            var entry = this.tournamentsDbContext.Entry(team);
+            entry.State = EntityState.Modified;
+
+            return this.tournamentsDbContext.SaveChanges();
+        }
+
+        public int InsertTeam(Team team)
+        {
+            this.tournamentsDbContext.Teams.Add(team);
+
+            return this.tournamentsDbContext.SaveChanges();
+        }
+
+        public int DeleteTeam(int teamId)
+        {
+            Team team = this.tournamentsDbContext.Teams.Find(teamId);
+            this.tournamentsDbContext.Teams.Remove(team);
+
+            return this.tournamentsDbContext.SaveChanges();
+        }
+
+        public IQueryable<Team> GetAllTeamsSortedById()
+        {
+            return this.tournamentsDbContext.Teams.OrderBy(t => t.Id);
         }
     }
 }

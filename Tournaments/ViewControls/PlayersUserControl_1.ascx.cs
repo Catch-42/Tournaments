@@ -17,6 +17,7 @@ namespace Tournaments.ViewControls
     public partial class PlayersUserControl_1 : MvpUserControl<PlayerViewModel>, IPlayerView
     {
         public event EventHandler MyInit;
+        public event EventHandler OnGetData;
         public event EventHandler<GenericEventArgs<Player>> SendPlayer;
 
         protected void Page_Load(object sender, EventArgs e)

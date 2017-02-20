@@ -15,5 +15,6 @@ namespace Tournaments.Views
         event EventHandler MyInit;
         //event EventHandler<PlayerArgs> SendPlayer;
         event EventHandler<GenericEventArgs<Player>> SendPlayer;
+        event EventHandler OnGetData;
     }
 }

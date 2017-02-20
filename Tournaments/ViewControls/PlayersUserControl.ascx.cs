@@ -18,6 +18,7 @@ namespace Tournaments.ViewControls
     {
         public event EventHandler MyInit;
         public event EventHandler<GenericEventArgs<Player>> SendPlayer;
+        public event EventHandler OnGetData;
 
         protected void Page_Load(object sender, EventArgs e)
         {

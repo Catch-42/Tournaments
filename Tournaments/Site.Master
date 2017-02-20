@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Soccer Tournaments</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -52,6 +52,8 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Players">Players</a></li>
+                        <li><a runat="server" href="~/TeamManager">Teams</a></li>
+                        <li><a runat="server" href="~/TeamPlayers">Team Players</a></li>
                         <li><a runat="server" href="~/Sponsors">Sponsors</a></li>
                         <li><a runat="server" href="~/Tournaments">Tournaments</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
@@ -81,7 +83,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Soccer Tournament</p>
             </footer>
         </div>
     </form>

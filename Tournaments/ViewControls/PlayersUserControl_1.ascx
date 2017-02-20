@@ -14,6 +14,6 @@
             <asp:BoundField HeaderText="Rating" DataField="Rating"></asp:BoundField>
             <asp:BoundField HeaderText="IsCoach" DataField="IsCoach"></asp:BoundField>
             <asp:BoundField HeaderText="CV" DataField="CV"></asp:BoundField>
-            <asp:BoundField HeaderText="Team" DataField="Team"></asp:BoundField>
+            <asp:BoundField HeaderText="Team" DataField="Team.Name"></asp:BoundField>
         </Columns>
     </asp:GridView>

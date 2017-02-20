@@ -1,4 +1,5 @@
 ﻿using Ninject.Modules;
+using Services.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Tournaments.App_Start
             //this.Bind<EmpDetailsPresenter>().ToSelf();
 
             this.Bind<IDataProvider>().To<DataProvider>();
+            this.Bind<ITeamService>().To<TeamService>();
         }
     }
 }
