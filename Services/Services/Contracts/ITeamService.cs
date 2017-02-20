@@ -10,21 +10,21 @@ namespace Services.Services.Contracts
 {
     public interface ITeamService
     {
-        IEnumerable<ITeam> GetTeams();
+        IEnumerable<Team> GetTeams();
 
-        IEnumerable<ITeam> GetTeamById(int id);
+        IEnumerable<Team> GetTeamById(int id);
 
 
-        IEnumerable<IPlayer> GetPlayers(int teamId);
+        IEnumerable<Player> GetPlayers(int teamId);
 
-        int UpdateTeam(ITeam team);
+        int UpdateTeam(Team team);
 
-        int InsertTeam(ITeam team);
+        int InsertTeam(Team team);
 
 
         int DeleteTeam(int teamId);
 
-        IEnumerable<ITeam> GetAllTeamsSortedById();
+        IEnumerable<Team> GetAllTeamsSortedById();
        
     }
 }

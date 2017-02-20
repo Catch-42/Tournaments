@@ -18,7 +18,7 @@ namespace DataTests.RepositoryTests
         public void ReturnAList_WhenItIsCalled()
         {
             var tournamentsDbContextMock = new Mock<TournamentsDbContext>();  //INTERFACE
-            var tounamentRepository = new TournamentsRepository<ITeam>(tournamentsDbContextMock.Object);
+            var tounamentRepository = new TournamentsRepository<Team>(tournamentsDbContextMock.Object);
             tounamentRepository.All();
 
             tournamentsDbContextMock.Verify(x=>x.DbSet, Times.Once);

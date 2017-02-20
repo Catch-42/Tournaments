@@ -42,7 +42,7 @@ namespace Tournaments.Presenters
                 throw new ArgumentNullException("Update team Id cannot be null");
             }
             
-            ITeam item = this.teamService.GetTeamById((int) e.Id).FirstOrDefault();
+            Team item = this.teamService.GetTeamById((int) e.Id).FirstOrDefault();
             if (item == null)
             {
                 // The item wasn't found

@@ -20,7 +20,7 @@ namespace ServicesTests.TeamServiceTests
         public void ThrowArgumentException_WhenIdParameterIsNegative()
         {
             // Arrange
-            var teamRepository = new Mock<ITournamentsRepository<ITeam>>();
+            var teamRepository = new Mock<ITournamentsRepository<Team>>();
             TeamService teamService = new TeamService(teamRepository.Object);
             int invalidId = -1;
             // Act & Assert
@@ -32,15 +32,15 @@ namespace ServicesTests.TeamServiceTests
         public void ShouldCallRepositoryGetById_WhenIdIsValid()
         {            
             // Arrange
-            var teamRepositoryMock = new Mock<ITournamentsRepository<ITeam>>();
+            var teamRepositoryMock = new Mock<ITournamentsRepository<Team>>();
             TeamService teamService = new TeamService(teamRepositoryMock.Object);
             int teamOneId = 1;
-            var teamOneMock = new Mock<ITeam>();
+            var teamOneMock = new Mock<Team>();
             teamOneMock.Setup(x => x.Id).Returns(teamOneId);
-            var teamTwoMock = new Mock<ITeam>();
+            var teamTwoMock = new Mock<Team>();
             teamTwoMock.Setup(x => x.Id).Returns(2);
 
-            teamRepositoryMock.Setup(x => x.All()).Returns(new List<ITeam>() { teamOneMock.Object, teamTwoMock.Object });
+            teamRepositoryMock.Setup(x => x.All()).Returns(new List<Team>() { teamOneMock.Object, teamTwoMock.Object });
 
             //Act
             var resultTeam = teamService.GetTeamById(teamOneId);
