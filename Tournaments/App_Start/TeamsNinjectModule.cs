@@ -18,16 +18,24 @@ namespace Tournaments.App_Start
         {
             //this.Bind<IDbContext>().To<MyNorthwindDbContext>().InRequestScope();
 
+            this.Bind<IPlayerService>().To<PlayerService>();
+            this.Bind<ITeamService>().To<TeamService>();
+            this.Bind<ITournamentService>().To<TournamentService>();
+            this.Bind<IGameService>().To<GameService>();
+            this.Bind<ISponsorService>().To<SponsorService>();
+
             this.Bind<TeamPresenter>().ToSelf();
             this.Bind<TournamentPresenter>().ToSelf();
             this.Bind<PlayerPresenter>().ToSelf();
             this.Bind<SponsorPresenter>().ToSelf();
+            this.Bind<GamePresenter>().ToSelf();
+
             this.Bind<ITournamentsDbContext>().To<TournamentsDbContext>();
             this.Bind(typeof(ITournamentsRepository<>)).To(typeof(TournamentsRepository<>)).InSingletonScope();
             //this.Bind<EmpDetailsPresenter>().ToSelf();
 
-            this.Bind<IDataProvider>().To<DataProvider>();
-            this.Bind<ITeamService>().To<TeamService>();
+            //this.Bind<IDataProvider>().To<DataProvider>();
+            //this.Bind<ITeamService>().To<TeamService>();
         }
     }
 }

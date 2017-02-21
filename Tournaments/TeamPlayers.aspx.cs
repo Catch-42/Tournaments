@@ -26,7 +26,6 @@ namespace Tournaments
             if (!Page.IsPostBack)
             {
                 this.MyInit?.Invoke(this, null);
-             
                 this.GridViewTeams.DataSource = this.Model.Teams;
                 this.GridViewTeams.DataBind();
                 //this.RebindOrders();

@@ -3,8 +3,8 @@ using Tournaments.Models;
 
 namespace Tournaments.Models_project
 {
-    public class SponsorsViewModel
+    public class GameViewModel
     {
-        public IEnumerable<Sponsor> Sponsors { get; set; }
+        public IEnumerable<Game> Games { get; set; }
     }
 }

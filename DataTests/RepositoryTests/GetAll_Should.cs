@@ -18,14 +18,15 @@ namespace DataTests.RepositoryTests
         public void ReturnAList_WhenItIsCalled()
         {
             var tournamentsDbContextMock = new Mock<TournamentsDbContext>();  //INTERFACE
-            var tounamentRepository = new TournamentsRepository<Team>(tournamentsDbContextMock.Object);
-            tounamentRepository.All();
+            var tournamentRepository = new TournamentsRepository<Team>(tournamentsDbContextMock.Object);
+            tournamentRepository.All();
+            //tournamentsDbContextMock.Setup(x => x.Set<Team>  .ToList()).Returns();
 
-            tournamentsDbContextMock.Verify(x=>x.DbSet, Times.Once);
-
+            //tournamentsDbContextMock.Verify(x => x.DbSet.ToList(), Times.Once);
+            //return this.DbSet.ToList();
 
         }
-        //return this.DbSet.ToList();
+
 
     }
 }

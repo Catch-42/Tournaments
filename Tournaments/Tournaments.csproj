@@ -258,6 +258,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="GameManager.aspx" />
+    <Content Include="SponsorManager.aspx" />
+    <Content Include="TournamentManager.aspx" />
     <Content Include="TESTINGupload.aspx" />
     <Content Include="ViewControls\FileUploadControl.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -268,6 +271,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\derKaiser.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="Players.aspx" />
@@ -314,6 +318,7 @@
     <Content Include="ViewControls\PlayersUserControl.ascx" />
     <Content Include="ViewControls\PlayersUserControl_1.ascx" />
     <Content Include="ViewControls\SponsorsUserControl.ascx" />
+    <Content Include="ViewControls\TournamentsUserControl.ascx" />
     <Content Include="ViewControls\TeamsUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -445,6 +450,29 @@
     </Compile>
     <Compile Include="App_Start\DataNinjectModule.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="Models_project\GameViewModel.cs" />
+    <Compile Include="GameManager.aspx.cs">
+      <DependentUpon>GameManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameManager.aspx.designer.cs">
+      <DependentUpon>GameManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\GamePresenter.cs" />
+    <Compile Include="SponsorManager.aspx.cs">
+      <DependentUpon>SponsorManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SponsorManager.aspx.designer.cs">
+      <DependentUpon>SponsorManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentManager.aspx.cs">
+      <DependentUpon>TournamentManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TournamentManager.aspx.designer.cs">
+      <DependentUpon>TournamentManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TESTINGupload.aspx.cs">
       <DependentUpon>TESTINGupload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,7 +519,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models_project\PlayerViewModel.cs" />
-    <Compile Include="Models_project\SponsorsViewModel.cs" />
+    <Compile Include="Models_project\SponsorViewModel.cs" />
     <Compile Include="Models_project\TeamPlayersViewModel.cs" />
     <Compile Include="Models_project\TeamViewModel.cs" />
     <Compile Include="Models_project\TournamentViewModel.cs" />
@@ -594,6 +622,13 @@
     <Compile Include="ViewControls\SponsorsUserControl.ascx.designer.cs">
       <DependentUpon>SponsorsUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewControls\TournamentsUserControl.ascx.cs">
+      <DependentUpon>TournamentsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\TournamentsUserControl.ascx.designer.cs">
+      <DependentUpon>TournamentsUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\TeamsUserControl.ascx.cs">
       <DependentUpon>TeamsUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -610,8 +645,9 @@
     </Compile>
     <Compile Include="Views\IdEventArgs.cs" />
     <Compile Include="Views\IPlayerView.cs" />
-    <Compile Include="Views\ISponsorsView.cs" />
+    <Compile Include="Views\ISponsorView.cs" />
     <Compile Include="Views\ITeamPlayersView.cs" />
+    <Compile Include="Views\IGameView.cs" />
     <Compile Include="Views\ITournamentView.cs" />
     <Compile Include="Views\ITeamView.cs" />
     <Compile Include="Views\GenericEventArgs.cs" />

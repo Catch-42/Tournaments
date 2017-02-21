@@ -24,7 +24,7 @@ namespace Tournaments.Models
             this.DbSet = this.Context.Set<T>();
         }
 
-        protected IDbSet<T> DbSet { get; set; }
+        protected IDbSet<T> DbSet { get; set; } 
         
         protected TournamentsDbContext Context { get; set; } // TODO use ITournamentsDbContext
                 

@@ -13,10 +13,10 @@ using System.Web;
 using Tournaments.Models;
 using WebFormsMvp;
 
-namespace TournamentsTest
+namespace TournamentsTests.PresentersTests.TeamPresentersTests
 {
     [TestFixture]
-    public class Constructor_Should
+    public class TeamPresenter_Constructor_Should
     {
         [Test]
         public void Throw_ArgumentNullException_WithMessageContainingTeamService_WhenTeamManagementServiceIsNull()

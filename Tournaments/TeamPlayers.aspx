@@ -21,7 +21,7 @@
             </ProgressTemplate>
         </asp:UpdateProgress>
 
-        <asp:UpdatePanel ID="UpdatePanelPlayers" runat="server" UpdateMode="Conditional">
+        <asp:UpdatePanel ID="UpdatePanelPlayers" runat="server" UpdateMode="Conditional" EnableEventValidation="true">
             <ContentTemplate>
                 <asp:GridView ID="GridViewPlayers" runat="server" AutoGenerateColumns="false"
                     ItemType="Tournaments.Models.Player" DataKeyNames="Id"

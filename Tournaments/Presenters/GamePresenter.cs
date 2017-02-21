@@ -11,17 +11,17 @@ using WebFormsMvp;
 
 namespace Tournaments.Presenters
 {
-    public class SponsorPresenter : Presenter<ISponsorView>
+    public class GamePresenter : Presenter<IGameView>
     {
-        private readonly ISponsorService sponsorService;
+        private readonly IGameService gameService;
 
-        public SponsorPresenter(ISponsorView view, ISponsorService sponsorService)
+        public GamePresenter(IGameView view, IGameService gameService)
             : base(view)
         {
-            Guard.WhenArgument(sponsorService, "SponsorService").IsNull().Throw();
-            Guard.WhenArgument(view, "SponsorView").IsNull().Throw();
+            Guard.WhenArgument(gameService, "GameService").IsNull().Throw();
+            Guard.WhenArgument(view, "GameView").IsNull().Throw();
 
-            this.sponsorService = sponsorService;
+            this.gameService = gameService;
             this.View.MyInit += this.View_Init;
             this.View.OnGetData += this.View_OnGetData;
             this.View.OnInsertItem += this.View_OnInsertItem;
@@ -32,17 +32,17 @@ namespace Tournaments.Presenters
 
         private void View_Init(object sender, EventArgs e)
         {
-            this.View.Model.Sponsors = this.sponsorService.GetSponsors();
+            this.View.Model.Games = this.gameService.GetGames();
         }
 
         private void View_OnUpdateItem(object sender, IdEventArgs e)
         {
             if (e.Id == null)
             {
-                throw new ArgumentNullException("Update sponsor Id cannot be null");
+                throw new ArgumentNullException("Update game Id cannot be null");
             }
 
-            Sponsor item = this.sponsorService.GetSponsorById((int)e.Id).FirstOrDefault();
+            Game item = this.gameService.GetGameById((int)e.Id).FirstOrDefault();
             if (item == null)
             {
                 // The item wasn't found
@@ -54,7 +54,7 @@ namespace Tournaments.Presenters
             this.View.TryUpdateModel(item);
             if (this.View.ModelState.IsValid)
             {
-                this.sponsorService.UpdateSponsor(item);
+                this.gameService.UpdateGame(item);
             }
         }
 
@@ -62,24 +62,24 @@ namespace Tournaments.Presenters
         {
             if (e.Id == null)
             {
-                throw new ArgumentNullException("Delete sponsor Id cannot be null");
+                throw new ArgumentNullException("Delete team Id cannot be null");
             }
-            this.sponsorService.DeleteSponsor((int)e.Id);
+            this.gameService.DeleteGame((int)e.Id);
         }
 
         private void View_OnInsertItem(object sender, EventArgs e)
         {
-            Sponsor sponsor = new Sponsor();
-            this.View.TryUpdateModel(sponsor);
+            Game game = new Game();
+            this.View.TryUpdateModel(game);
             if (this.View.ModelState.IsValid)
             {
-                this.sponsorService.InsertSponsor(sponsor);
+                this.gameService.InsertGame(game);
             }
         }
 
         private void View_OnGetData(object sender, EventArgs e)
         {
-            this.View.Model.Sponsors = this.sponsorService.GetAllSponsorsSortedById();
+            this.View.Model.Games = this.gameService.GetAllGamesSortedById();
         }
     }
 }

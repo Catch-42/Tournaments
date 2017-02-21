@@ -1,4 +1,5 @@
-﻿using Services.Services.Contracts;
+﻿using Bytes2you.Validation;
+using Services.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,9 @@ namespace Tournaments.Presenters
         public TeamPlayersPresenter(ITeamPlayersView view, ITeamService teamService)
             : base(view)
         {
+            Guard.WhenArgument(teamService, "TeamService").IsNull().Throw();
+            Guard.WhenArgument(view, "TeamView").IsNull().Throw();
+
             this.teamService = teamService;
              this.View.MyInit += this.View_Init;
             this.View.OnSelectedIndexChanged += this.View_OnSelectedIndexChanged;

@@ -9,7 +9,7 @@ using WebFormsMvp;
 
 namespace Tournaments.Views
 {
-    public interface ITournamentView : IView<TournamentViewModel>
+    public interface IGameView : IView<GameViewModel>
     {
         event EventHandler MyInit;
         event EventHandler OnGetData;

@@ -1,4 +1,5 @@
-﻿using Models.Contracts;
+﻿using Bytes2you.Validation;
+using Models.Contracts;
 using Services.Services;
 using Services.Services.Contracts;
 using System;
@@ -31,6 +32,7 @@ namespace Tournaments.Services
             {
                 throw new ArgumentException("Invalid id");
             }
+            
             return this.teamRepository.All().Where(t => t.Id == id).ToList(); // TODO TO LIST?
 
         }
@@ -56,6 +58,7 @@ namespace Tournaments.Services
             {
                 throw new ArgumentException("Team cannot be null.");
             }
+
             this.teamRepository.Update(team);
             return 1;
         }
