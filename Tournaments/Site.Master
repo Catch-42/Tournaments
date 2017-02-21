@@ -11,9 +11,8 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server">
@@ -79,6 +78,12 @@
             </div>
         </div>
         <div class="container body-content">
+            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+
+            <div class="sitemap-navigation">
+                <asp:SiteMapPath ID="SiteMapPathBreadcrump" runat="server" />
+            </div>
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
