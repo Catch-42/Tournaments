@@ -22,7 +22,7 @@ namespace Tournaments
         public event EventHandler OnInsertItem;
         public event EventHandler<IdEventArgs> OnDeleteItem;
         public event EventHandler<IdEventArgs> OnUpdateItem;
-
+        public event EventHandler<GenericEventArgs<Team>> OnCreateItem;
 
         protected void Page_Load(object sender, EventArgs e)
         {

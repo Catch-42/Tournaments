@@ -69,10 +69,15 @@
   <ItemGroup>
     <Compile Include="PresentersTests\GamePresenterTests\GamePresenter_Constructor_Should.cs" />
     <Compile Include="PresentersTests\GamePresenterTests\GamePresenter_View_OnGetData_Should.cs" />
+    <Compile Include="PresentersTests\PlayerPresenterTests\PlayerPresenter_Constructor_Should.cs" />
+    <Compile Include="PresentersTests\PlayerPresenterTests\PlayerPresenter_View_OnGetData_Should.cs" />
     <Compile Include="PresentersTests\SponsorPresenterTests\SponsorPresenter_Constructor_Should.cs" />
     <Compile Include="PresentersTests\SponsorPresenterTests\SponsorPresenter_View_OnGetData_Should.cs" />
+    <Compile Include="PresentersTests\SponsorPresenterTests\SponsorPresenter_View_OnUpdateItem_Should.cs" />
     <Compile Include="PresentersTests\TeamPresenterTests\TeamPresenter_Constructor_Should.cs" />
     <Compile Include="PresentersTests\TeamPresenterTests\TeamPresenter_View_OnGetData_Should.cs" />
+    <Compile Include="PresentersTests\TeamPresenterTests\TeamPresenter_View_OnUpdateItem_Should.cs" />
+    <Compile Include="PresentersTests\TournamentPresenterTests\TournamentPresenter_View_OnUpdateItem_Should.cs" />
     <Compile Include="PresentersTests\TournamentPresenterTests\TournamentPresenter_Constructor_Should.cs" />
     <Compile Include="PresentersTests\TournamentPresenterTests\TournamentPresenter_View_OnGetData_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,9 +108,7 @@
       <Name>Tournaments</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PresentersTests\PlayerPresenterTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

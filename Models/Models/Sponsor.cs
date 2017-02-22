@@ -7,9 +7,9 @@ namespace Tournaments.Models
         [Key]
         public int Id { get; set; }
 
-        //[Required]
-        //[MinLength(2)]
-        //[StringLength(50)]
+        [Required]
+        [MinLength(2)]
+        [StringLength(50)]
         public string Name { get; set; }
 
     }

@@ -15,7 +15,7 @@ using Tournaments.Views;
 namespace TournamentsTests.PresentersTests.TournamentPresentersTests
 {
     [TestFixture]
-    public class TournamentPresenter_View_OnCategoriesGetData_Should
+    public class TournamentPresenter_View_OnGetData_Should
     {
         [Test]
         public void CallGetAllTournamentsSortedById_WhenOnGetDataEventIsRaised()
@@ -48,7 +48,6 @@ namespace TournamentsTests.PresentersTests.TournamentPresentersTests
                 {
 
                     Id=1,
-
                     Name = "Tournament 1",
                     Date = new DateTime(2017,02,01),
                     Prize=1

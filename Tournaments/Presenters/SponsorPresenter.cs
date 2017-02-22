@@ -42,8 +42,8 @@ namespace Tournaments.Presenters
                 throw new ArgumentNullException("Update sponsor Id cannot be null");
             }
 
-            Sponsor item = this.sponsorService.GetSponsorById((int)e.Id).FirstOrDefault();
-            if (item == null)
+            var sponsor = this.sponsorService.GetSponsorById((int)e.Id);
+            if (sponsor == null)
             {
                 // The item wasn't found
                 this.View.ModelState.
@@ -51,10 +51,19 @@ namespace Tournaments.Presenters
                 return;
             }
 
+            Sponsor item = this.sponsorService.GetSponsorById((int)e.Id).FirstOrDefault();
+
+
             this.View.TryUpdateModel(item);
             if (this.View.ModelState.IsValid)
             {
                 this.sponsorService.UpdateSponsor(item);
+            }
+            else
+            {
+                this.View.ModelState.
+                    AddModelError("", String.Format("Item with id {0} cannot be updated", e.Id));
+                return;
             }
         }
 

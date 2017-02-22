@@ -9,7 +9,7 @@
         <div class="form-group">
 
             <asp:FileUpload ID="FileUpload" runat="server" CssClass="upload-button" AllowMultiple="true" hidden="true" />
-            <asp:Label AssociatedControlID="FileUpload" runat="server" CssClass="upload-button-modified btn btn-warning">
+            <asp:Label AssociatedControlID="FileUpload" runat="server" CssClass="upload-button-modified btn btn-info">
         Choose a file
             </asp:Label>
             <asp:Button ID="UploadFileBtn"

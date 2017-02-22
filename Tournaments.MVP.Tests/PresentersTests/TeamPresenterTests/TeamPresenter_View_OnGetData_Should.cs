@@ -15,7 +15,7 @@ using Tournaments.Views;
 namespace TournamentsTests.PresentersTests.TeamPresentersTestsk
 {
     [TestFixture]
-    public class View_OnCategoriesGetData_Should
+    public class TeamPresenter_View_OnGetData_Should
     {
         [Test]
         public void CallGetAllTeamsSortedById_WhenOnGetDataEventIsRaised()

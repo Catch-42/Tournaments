@@ -260,6 +260,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="GameManager.aspx" />
     <Content Include="SponsorManager.aspx" />
+    <Content Include="PlayerManager.aspx" />
+    <Content Include="PlayerCreator.aspx" />
+    <Content Include="TeamCreator.aspx" />
     <Content Include="TournamentManager.aspx" />
     <Content Include="TESTINGupload.aspx" />
     <Content Include="ViewControls\FileUploadControl.ascx" />
@@ -466,6 +469,27 @@
     </Compile>
     <Compile Include="SponsorManager.aspx.designer.cs">
       <DependentUpon>SponsorManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerManager.aspx.cs">
+      <DependentUpon>PlayerManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlayerManager.aspx.designer.cs">
+      <DependentUpon>PlayerManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerCreator.aspx.cs">
+      <DependentUpon>PlayerCreator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlayerCreator.aspx.designer.cs">
+      <DependentUpon>PlayerCreator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeamCreator.aspx.cs">
+      <DependentUpon>TeamCreator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamCreator.aspx.designer.cs">
+      <DependentUpon>TeamCreator.aspx</DependentUpon>
     </Compile>
     <Compile Include="TournamentManager.aspx.cs">
       <DependentUpon>TournamentManager.aspx</DependentUpon>

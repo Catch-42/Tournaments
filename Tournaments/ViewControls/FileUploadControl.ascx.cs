@@ -18,7 +18,7 @@ namespace Tournaments.ViewControls
     {
         //public event EventHandler<GetUserAvatarEventArgs> EventGetUserAvatar;
         //public event EventHandler<AvatarUploadEventArgs> EventUploadAvatar;
-        public string FileUrl { get; private set; }
+        //public string FileUrl { get; private set; }
         //http://stackoverflow.com/questions/6495395/how-to-create-a-custom-event-for-a-user-control-in-webforms
         //http://stackoverflow.com/questions/3486377/how-to-add-an-event-to-a-usercontrol-in-c
         //public delegate void TextChangedEventHandler(object sender, EventArgs e);
@@ -56,7 +56,7 @@ namespace Tournaments.ViewControls
                 string userAvatarUrl = "~/UploadedFiles/Pictures/" + filename;
 
                 file.SaveAs(fileStoragePath);
-                this.FileUrl = userAvatarUrl;
+                Session["Url"]=userAvatarUrl;
                 //this.EventUploadAvatar(this, new AvatarUploadEventArgs()
                 //{
                 //    LoggedUserUserName = loggedUserUserName,

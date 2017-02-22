@@ -28,8 +28,9 @@ namespace Tournaments.Presenters
             this.View.OnInsertItem += this.View_OnInsertItem;
             this.View.OnDeleteItem += this.View_OnDeleteItem;
             this.View.OnUpdateItem += this.View_OnUpdateItem;
+            this.View.OnCreateItem += this.View_OnCreateItem;
 
-    }
+        }
 
         private void View_Init(object sender, EventArgs e)
         {
@@ -41,9 +42,9 @@ namespace Tournaments.Presenters
             if(e.Id==null){
                 throw new ArgumentNullException("Update team Id cannot be null");
             }
-            
-            Team item = this.teamService.GetTeamById((int) e.Id).FirstOrDefault();
-            if (item == null)
+
+            var team = this.teamService.GetTeamById((int)e.Id);
+            if (team == null)
             {
                 // The item wasn't found
                 this.View.ModelState.
@@ -51,11 +52,20 @@ namespace Tournaments.Presenters
                 return;
             }
 
+            Team item = this.teamService.GetTeamById((int) e.Id).FirstOrDefault();
+            
+
             this.View.TryUpdateModel(item);
             if (this.View.ModelState.IsValid)
             {
                 this.teamService.UpdateTeam(item);
+            }else
+            {
+                this.View.ModelState.
+                    AddModelError("", String.Format("Item with id {0} cannot be updated", e.Id));
+                return;
             }
+
         }
 
         private void View_OnDeleteItem(object sender, IdEventArgs e)
@@ -80,6 +90,12 @@ namespace Tournaments.Presenters
         private void View_OnGetData(object sender, EventArgs e)
         {
             this.View.Model.Teams = this.teamService.GetAllTeamsSortedById();
+        }
+
+        private void View_OnCreateItem(object sender, GenericEventArgs<Team> e)
+        {
+            Team team = new Team() { Name = e.EntityProp.Name,Rating=e.EntityProp.Rating };
+            this.teamService.InsertTeam(team);
         }
     }
 

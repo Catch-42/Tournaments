@@ -25,6 +25,6 @@ namespace Services.Services.Contracts
         int DeleteTeam(int teamId);
 
         IEnumerable<Team> GetAllTeamsSortedById();
-       
+
     }
 }

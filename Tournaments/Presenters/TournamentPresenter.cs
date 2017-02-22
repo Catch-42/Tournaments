@@ -42,8 +42,8 @@ namespace Tournaments.Presenters
                 throw new ArgumentNullException("Update tournament Id cannot be null");
             }
 
-            Tournament item = this.tournamentService.GetTournamentById((int)e.Id).FirstOrDefault();
-            if (item == null)
+            var tournament = this.tournamentService.GetTournamentById((int)e.Id);
+            if (tournament == null)
             {
                 // The item wasn't found
                 this.View.ModelState.
@@ -51,10 +51,19 @@ namespace Tournaments.Presenters
                 return;
             }
 
+            Tournament item = this.tournamentService.GetTournamentById((int)e.Id).FirstOrDefault();
+
+
             this.View.TryUpdateModel(item);
             if (this.View.ModelState.IsValid)
             {
                 this.tournamentService.UpdateTournament(item);
+            }
+            else
+            {
+                this.View.ModelState.
+                    AddModelError("", String.Format("Item with id {0} cannot be updated", e.Id));
+                return;
             }
         }
 

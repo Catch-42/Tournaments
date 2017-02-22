@@ -11,7 +11,7 @@ namespace Tournaments
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.labelPictureUrl.Text= this.fileUploadInTest.FileUrl;
+            this.labelPictureUrl.Text = (string)Session["Url"];
         }
     }
 }

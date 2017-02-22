@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Tournaments.Models;
@@ -19,6 +20,9 @@ namespace Tournaments.ViewControls
         public event EventHandler MyInit;
         public event EventHandler<GenericEventArgs<Player>> SendPlayer;
         public event EventHandler OnGetData;
+        public event EventHandler OnInsertItem;
+        public event EventHandler<IdEventArgs> OnDeleteItem;
+        public event EventHandler<IdEventArgs> OnUpdateItem;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +30,14 @@ namespace Tournaments.ViewControls
 
             this.GridViewPlayers.DataSource = this.Model.Players;
             this.GridViewPlayers.DataBind();
+        }
+
+        public ModelStateDictionary ModelState
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
     }   
 }

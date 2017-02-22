@@ -15,7 +15,7 @@ using Tournaments.Views;
 namespace TournamentsTests.PresentersTests.SponsorPresentersTests
 {
     [TestFixture]
-    public class SponsorPresenter_View_OnCategoriesGetData_Should
+    public class SponsorPresenter_View_OnGetData_Should
     {
         [Test]
         public void CallGetAllSponsorsSortedById_WhenOnGetDataEventIsRaised()

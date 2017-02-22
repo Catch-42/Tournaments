@@ -11,7 +11,6 @@ namespace DataTests
     public class Constructor_Should
     {
         [Test]
-
         public void ThrowArgumentException_WhenDbContextIsnull()
         {
             //Action & Assert           
@@ -29,6 +28,17 @@ namespace DataTests
             var tounamentRepository = new TournamentsRepository<ITeam>(TournamentsDbContextMock.Object);
             Assert.IsInstanceOf<TournamentsRepository<ITeam>>(tounamentRepository);
         }
+
+        //[Test]
+        //[GenericTestCase(typeof(Team))]
+
+        //public void ReturnAnInstanceOfTournamentsRepository_WhenGenericDbContextIsValid(Type t)
+        //{
+        //    //Arrange
+        //    var TournamentsDbContextMock = new Mock<TournamentsDbContext>();
+        //    var tounamentRepository = new TournamentsRepository<t>(TournamentsDbContextMock.Object);
+        //    Assert.IsInstanceOf<TournamentsRepository<t>>(tounamentRepository);
+        //}
     }
 
 }

@@ -16,7 +16,7 @@ using WebFormsMvp;
 namespace TournamentsTests.PresentersTests.SponsorPresentersTests
 {
     [TestFixture]
-    public class SponsorPresenters_Constructor_Should
+    public class SponsorPresenter_Constructor_Should
     {
         [Test]
         public void Throw_ArgumentNullException_WithMessageContainingSponsorService_WhenSponsorServiceIsNull()

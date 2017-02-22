@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Models.Contracts;
+using Models.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,26 +13,26 @@ namespace Tournaments.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        //[Required]
-        //[MinLength(2)]
-        //[StringLength(50)]
+        [Required]
+        [MinLength(2)]
+        [StringLength(50)]
         public string FirstName { get; set; }
 
-        //[Required]
-        //[MinLength(2)]
-        //[StringLength(50)]
+        [Required]
+        [MinLength(2)]
+        [StringLength(50)]
         public string LastName { get; set; }
 
-        //[Required]
-        //[MinLength(2)]
-        //[StringLength(50)]
+        [Required]
+        [MinLength(2)]
+        [StringLength(50)]
         public string NickName { get; set; }
 
         public string Picture { get; set; }
 
-        //[Required]
-        //[MinLength(8)]
-        //[StringLength(50)]
+        [Required]
+        [MinLength(8)]
+        [StringLength(50)]
         public string Email { get; set; }
 
         public double? Rating { get; set; }
@@ -42,5 +44,10 @@ namespace Tournaments.Models
         public int? TeamId { get; set; }
 
         public virtual Team Team { get; set; }
+
+        public Guid UserId { get; set; }
+        public User User { get; set; }
+
+
     }
 }
